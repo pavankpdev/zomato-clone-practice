@@ -7,14 +7,10 @@ const Router = express.Router();
 
 Router.get("/", async (req, res) => {
   const city = req.query.city;
-  try {
-    const allRestaurants = await RestaurantModal.find({
-      city: city || "Bangalore",
-    });
-    return res.json({ restaurants: allRestaurants });
-  } catch (error) {
-    throw new Error(error);
-  }
+  const allRestaurants = await RestaurantModal.find({
+    city: city || "Bangalore",
+  });
+  return res.json({ restaurants: allRestaurants });
 });
 
 export default Router;
