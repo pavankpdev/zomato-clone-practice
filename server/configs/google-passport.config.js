@@ -23,12 +23,14 @@ export default (passport) => {
           const user = await UserModal.findOne({
             email: newUser.email,
           });
-
+          const token = user.generateAuthToken();
           if (user) {
-            done(null, user);
+            done(null, { user, token });
           } else {
-            const createUser = await UserModal.create(newUser);
-            done(null, createUser);
+            const user = await UserModal.create(newUser);
+            const token = user.generateAuthToken();
+
+            done(null, { user, token });
           }
         } catch (error) {
           done(error, null);
@@ -36,8 +38,8 @@ export default (passport) => {
       }
     )
   );
-  passport.serializeUser((user, done) => {
-    done(null, { user });
+  passport.serializeUser((userData, done) => {
+    done(null, { ...userData });
   });
 
   passport.deserializeUser((id, done) => {
