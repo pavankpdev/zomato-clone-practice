@@ -1,5 +1,5 @@
 // Libraries
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const OrderSchema = new mongoose.Schema({
   user: {
@@ -39,3 +39,4 @@ const OrderSchema = new mongoose.Schema({
     required: true,
   },
 });
+export const OrderModal = mongoose.model("Orders", OrderSchema);

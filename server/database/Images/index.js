@@ -1,9 +1,11 @@
 // Libraries
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const ImageSchema = new mongoose({
+const ImageSchema = new mongoose.Schema({
   location: {
     type: String,
     required: true,
   },
 });
+
+export const ImageModal = mongoose.model("Images", ImageSchema);

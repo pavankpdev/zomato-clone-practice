@@ -1,7 +1,7 @@
 // Libraries
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const UserSchema = new mongoose({
+const UserSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true },
   password: { type: String },
@@ -20,3 +20,4 @@ const UserSchema = new mongoose({
     },
   ],
 });
+export const UserModal = mongoose.model("Users", UserSchema);

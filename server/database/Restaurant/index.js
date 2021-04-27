@@ -1,12 +1,13 @@
 // Libraries
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const RestaurantSchema = new mongoose({
+const RestaurantSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
   },
-  location: { type: String, required: true },
+  city: { type: String, required: true },
+  address: { type: String, required: true },
   mapLocation: { type: String, required: true },
   cuisine: [String],
   restaurantTimings: String,
@@ -33,3 +34,5 @@ const RestaurantSchema = new mongoose({
     },
   ],
 });
+
+export const RestaurantModal = mongoose.model("Restaurant", RestaurantSchema);

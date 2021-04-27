@@ -1,5 +1,5 @@
 // Libraries
-const mongoose = require("mongoose");
+import mongoose, { mongo } from "mongoose";
 
 const MenuSchema = new mongoose.Schema({
   restaurant: {
@@ -24,3 +24,5 @@ const MenuSchema = new mongoose.Schema({
     },
   ],
 });
+
+export const MenuModal = mongoose.model("Menu", MenuSchema);

@@ -1,5 +1,5 @@
 // Libraries
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const FoodSchema = new mongoose.Schema({
   name: {
@@ -40,3 +40,5 @@ const FoodSchema = new mongoose.Schema({
     },
   ],
 });
+
+export const FoodModal = mongoose.model("Foods", FoodSchema);

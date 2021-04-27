@@ -1,7 +1,7 @@
 // Libraries
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const ReviewSchema = new mongoose({
+const ReviewSchema = new mongoose.Schema({
   reviewText: { type: String, required: true },
   isRestaurantReview: { type: String, default: false },
   isFoodReview: { type: String, default: false },
@@ -18,3 +18,4 @@ const ReviewSchema = new mongoose({
     },
   ],
 });
+export const ReviewModal = mongoose.model("Reviews", ReviewSchema);
