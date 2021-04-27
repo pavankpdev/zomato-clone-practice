@@ -13,6 +13,7 @@ import ConnectDB from "./database/connection";
 
 // Configs
 import googleAuthConfig from "./configs/google-passport.config";
+import routeAuthConfig from "./configs/routes-passport.config";
 
 // importing microservices route
 import Restaurant from "./API/restaurants/";
@@ -31,6 +32,7 @@ ZomatoApp.use(passport.session());
 
 // Passport Config
 googleAuthConfig(passport);
+routeAuthConfig(passport);
 
 // Application Route Middleware
 ZomatoApp.use("/restaurants", Restaurant);
