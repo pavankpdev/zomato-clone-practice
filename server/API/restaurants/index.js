@@ -56,7 +56,24 @@ Router.patch("/update", passport.authenticate("jwt"), async (req, res) => {
       { $set: req.body.retaurantData },
       { new: true }
     );
+    if (!updatedRestaurant)
+      return res.status(404).json({ restaurant: "Restaurant Not Found!!!" });
+
     return res.json({ updatedRestaurant });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
+
+// @Route   DELETE /restaurants/delete
+// @des     update exisitng restaurant data
+// @access  PRIVATE
+Router.delete("/delete", passport.authenticate("jwt"), async (req, res) => {
+  try {
+    const deleteRestaurant = await RestaurantModal.findByIdAndRemove(
+      req.body.retaurantData._id
+    );
+    return res.json({ deleteRestaurant: Boolean(deleteRestaurant) });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
