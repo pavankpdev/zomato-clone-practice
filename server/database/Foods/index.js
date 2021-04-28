@@ -26,6 +26,7 @@ const FoodSchema = new mongoose.Schema({
   restaurant: {
     type: mongoose.Types.ObjectId,
     ref: "Restaurant",
+    required: true,
   },
   photos: [
     {
@@ -33,7 +34,7 @@ const FoodSchema = new mongoose.Schema({
       ref: "Images",
     },
   ],
-  price: { type: Number, default: false },
+  price: { type: Number, default: 150, required: true },
   addOns: [
     {
       type: mongoose.Types.ObjectId,
