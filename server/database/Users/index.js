@@ -9,18 +9,6 @@ const UserSchema = new mongoose.Schema({
   password: { type: String },
   address: [{ type: String }],
   phoneNumbers: [{ type: Number }],
-  orders: [
-    {
-      type: mongoose.Types.ObjectId,
-      ref: "Orders",
-    },
-  ],
-  reviews: [
-    {
-      type: mongoose.Types.ObjectId,
-      ref: "Reviews",
-    },
-  ],
 });
 
 UserSchema.methods.generateAuthToken = function () {

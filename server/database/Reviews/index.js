@@ -14,5 +14,9 @@ const ReviewSchema = new mongoose.Schema({
     ref: "Images",
   },
   rating: Number,
+  user: {
+    type: mongoose.Types.ObjectId,
+    ref: "Users",
+  },
 });
 export const ReviewModal = mongoose.model("Reviews", ReviewSchema);

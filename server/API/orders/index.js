@@ -27,6 +27,7 @@ Router.post("/new", async (req, res) => {
       },
       { new: true }
     );
+    
     return res.json({ orders: updateOrders });
   } catch (error) {
     return res.status(500).json({ error: error.message });

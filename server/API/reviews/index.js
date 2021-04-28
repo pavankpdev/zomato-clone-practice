@@ -7,8 +7,23 @@ const Router = express.Router();
 
 Router.get("/:type/:reviewID", async (req, res) => {
   try {
-    const { type } = req.params;
+    const { type, reviewID } = req.params;
     const getReviews = await ReviewModal.find({ [type]: reviewID });
+    if (!getReviews) return res.json({ review: [] });
+
+    return res.json({ review: getReviews });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
+
+Router.get("/:type/:reviewID/:userID", async (req, res) => {
+  try {
+    const { type, reviewID, userID } = req.params;
+    const getReviews = await ReviewModal.find({
+      [type]: reviewID,
+      user: userID,
+    });
     if (!getReviews) return res.json({ review: [] });
 
     return res.json({ review: getReviews });
