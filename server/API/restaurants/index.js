@@ -43,19 +43,7 @@ Router.get("/s/:search", async (req, res) => {
 Router.post("/new", passport.authenticate("jwt"), async (req, res) => {
   try {
     const newRetaurant = await RestaurantModal.create(req.body.retaurantData);
-    return res.json({ newRetaurant });
-  } catch (error) {
-    return res.status(500).json({ error: error.message });
-  }
-});
-
-// @Route   POST /restaurants/new
-// @des     add new restaurant
-// @access  PRIVATE
-Router.post("/new", passport.authenticate("jwt"), async (req, res) => {
-  try {
-    const newRetaurant = await RestaurantModal.create(req.body.retaurantData);
-    return res.json({ newRetaurant });
+    return res.json({ restaurants: newRetaurant });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
@@ -72,9 +60,9 @@ Router.patch("/update", passport.authenticate("jwt"), async (req, res) => {
       { new: true }
     );
     if (!updatedRestaurant)
-      return res.status(404).json({ restaurant: "Restaurant Not Found!!!" });
+      return res.status(404).json({ restaurants: "Restaurant Not Found!!!" });
 
-    return res.json({ updatedRestaurant });
+    return res.json({ restaurants: updatedRestaurant });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
@@ -88,7 +76,7 @@ Router.delete("/delete", passport.authenticate("jwt"), async (req, res) => {
     const deleteRestaurant = await RestaurantModal.findByIdAndRemove(
       req.body.retaurantData._id
     );
-    return res.json({ deleteRestaurant: Boolean(deleteRestaurant) });
+    return res.json({ restaurants: Boolean(deleteRestaurant) });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
@@ -101,9 +89,9 @@ Router.get("/:id", async (req, res) => {
   try {
     const restaurant = await RestaurantModal.findById(req.params.id);
     if (!restaurant)
-      return res.status(404).json({ restaurant: "Restaurant Not Found!!!" });
+      return res.status(404).json({ restaurants: "Restaurant Not Found!!!" });
 
-    return res.json({ restaurant });
+    return res.json({ restaurants: restaurant });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }

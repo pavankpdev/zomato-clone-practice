@@ -28,12 +28,11 @@ const FoodSchema = new mongoose.Schema({
     ref: "Restaurant",
     required: true,
   },
-  photos: [
-    {
-      type: mongoose.Types.ObjectId,
-      ref: "Images",
-    },
-  ],
+  photos: {
+    type: mongoose.Types.ObjectId,
+    ref: "Images",
+  },
+
   price: { type: Number, default: 150, required: true },
   addOns: [
     {

@@ -11,11 +11,9 @@ const ReviewSchema = new mongoose.Schema({
     ref: "Restaurant",
   },
   rating: Number,
-  photos: [
-    {
-      type: mongoose.Types.ObjectId,
-      ref: "Images",
-    },
-  ],
+  photos: {
+    type: mongoose.Types.ObjectId,
+    ref: "Images",
+  },
 });
 export const ReviewModal = mongoose.model("Reviews", ReviewSchema);

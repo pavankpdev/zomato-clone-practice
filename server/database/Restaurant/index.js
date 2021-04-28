@@ -16,23 +16,20 @@ const RestaurantSchema = new mongoose.Schema({
   popularDishes: [String],
   averageCost: Number,
   amenities: [String],
-  menuImage: [
-    {
-      type: mongoose.Types.ObjectId,
-      ref: "Images",
-    },
-  ],
+  menuImage: {
+    type: mongoose.Types.ObjectId,
+    ref: "Images",
+  },
+
   menu: {
     type: mongoose.Types.ObjectId,
     ref: "Menu",
   },
   reviews: [{ type: mongoose.Types.ObjectId, ref: "Reviews" }],
-  photos: [
-    {
-      type: mongoose.Types.ObjectId,
-      ref: "Images",
-    },
-  ],
+  photos: {
+    type: mongoose.Types.ObjectId,
+    ref: "Images",
+  },
 });
 
 export const RestaurantModal = mongoose.model("Restaurant", RestaurantSchema);
