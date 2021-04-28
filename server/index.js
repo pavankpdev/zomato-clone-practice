@@ -18,6 +18,7 @@ import routeAuthConfig from "./configs/routes-passport.config";
 // importing microservices route
 import Restaurant from "./API/restaurants/";
 import Auth from "./API/auth";
+import Foods from "./API/foods";
 
 // Initializing express application
 const ZomatoApp = express();
@@ -37,6 +38,7 @@ routeAuthConfig(passport);
 // Application Route Middleware
 ZomatoApp.use("/restaurants", Restaurant);
 ZomatoApp.use("/auth", Auth);
+ZomatoApp.use("/foods", Foods);
 
 // 404 route
 ZomatoApp.get("/", (req, res) => {

@@ -22,6 +22,21 @@ Router.get("/", async (req, res) => {
   }
 });
 
+// @Route   GET /restaurants/s/:search
+// @des     GEt restaurants by the search string
+// @access  PUBLIC
+Router.get("/s/:search", async (req, res) => {
+  try {
+    const { search } = req.params;
+    const allRestaurants = await RestaurantModal.find({
+      name: { $regex: search, $options: "i" },
+    });
+    return res.json({ restaurants: allRestaurants });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
+
 // @Route   POST /restaurants/new
 // @des     add new restaurant
 // @access  PRIVATE
