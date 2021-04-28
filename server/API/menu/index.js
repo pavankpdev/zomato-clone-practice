@@ -115,6 +115,27 @@ Router.delete("/delete/single", async (req, res) => {
   }
 });
 
+// @Route   DELETE /menu/item/delete/single
+// @des     deletes a single menu
+// @access  PUBLIC
+Router.delete("/item/delete/single", async (req, res) => {
+  try {
+    const { menuData } = req.body;
+
+    const updateMenu = await MenuModal.findOneAndUpdate(
+      { _id: menuData._id, "menus._id": menuData.menuId },
+      {
+        $pull: { "menus.$.items": menuData.deleteItem },
+      },
+      { new: true }
+    );
+
+    return res.json({ menu: updateMenu });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
+
 // @Route   DELETE menu/recommendation/delete/single
 // @des     deletes a single menu
 // @access  PUBLIC
