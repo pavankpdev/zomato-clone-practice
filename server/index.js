@@ -20,6 +20,7 @@ import Restaurant from "./API/restaurants/";
 import Auth from "./API/auth";
 import Foods from "./API/foods";
 import Images from "./API/images";
+import Menu from "./API/menu";
 
 // Initializing express application
 const ZomatoApp = express();
@@ -41,6 +42,7 @@ ZomatoApp.use("/restaurants", Restaurant);
 ZomatoApp.use("/auth", Auth);
 ZomatoApp.use("/foods", Foods);
 ZomatoApp.use("/images", Images);
+ZomatoApp.use("/menu", Menu);
 
 // 404 route
 ZomatoApp.get("/", (req, res) => {

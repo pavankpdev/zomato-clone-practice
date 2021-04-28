@@ -2,10 +2,6 @@
 import mongoose, { mongo } from "mongoose";
 
 const MenuSchema = new mongoose.Schema({
-  restaurant: {
-    type: mongoose.Types.ObjectId,
-    ref: "Restaurant",
-  },
   menus: [
     {
       name: { type: String, required: true },
@@ -21,6 +17,7 @@ const MenuSchema = new mongoose.Schema({
     {
       type: mongoose.Types.ObjectId,
       ref: "Foods",
+      unique: true,
     },
   ],
 });
