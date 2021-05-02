@@ -6,7 +6,7 @@ jobs:
     steps:
       - run:
           name: Building Docker Image
-          command: docker build -t pavanleton/server -f ./server/Dockerfile.dev ./server
+          command: "docker build -t pavanleton/server -f ./server/Dockerfile.dev ./server"
       - run:
           name: Testing Node Server
-          command: docker run -e CI=true pavanleton/server npm run test -- --coverage
+          command: "docker run -e CI=true pavanleton/server npm run test -- --coverage"
