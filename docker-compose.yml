@@ -1,0 +1,37 @@
+version: "3"
+services:
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - nodeserver
+      - client
+  nodeserver:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./server
+    volumes:
+      - /app/node_modules
+      - ./server:/app
+    environment:
+      - DB_URI=mongodb+srv://admin:OSHVwEaMLk7nboFM@testzomato.gptly.mongodb.net/Zomato?retryWrites=true&w=majority
+      - PORT=4000
+      - JWT_PRIVATE_KEY=zomato
+      - OAUTH_GOOGLE_CLIENT_ID=1080160869968-a41ddvqrhge59kbob39h1lor02avpkat.apps.googleusercontent.com
+      - OAUTH_GOOGLE_CLIENT_SECRET=ZUVv8uAWPsBplMODbU2tVdZs
+    ports:
+      - "4000:4000"
+  client:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./client
+    volumes:
+      - /app/node_modules
+      - ./client:/app
+    ports:
+      - "3000:3000"
