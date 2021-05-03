@@ -1,4 +1,9 @@
 version: 2.1
+machine:
+  node:
+    version: 5.8.0
+  services:
+    - docker
 jobs:
   build:
     docker:
