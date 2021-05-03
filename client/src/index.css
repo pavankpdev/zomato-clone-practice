@@ -5,3 +5,13 @@
 body {
   background-color: #ebf2ff;
 }
+
+.slick-slide {
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #e23744 !important;
+}
