@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 
 import RestaurantCard from "../RestaurantCard";
-import CollectionsList from "./CollectionsList";
+import CollectionsList from "../CarausalCollection";
 
 // Configs
 import ReactSlickConfig from "../../config/reactSlickConfig";

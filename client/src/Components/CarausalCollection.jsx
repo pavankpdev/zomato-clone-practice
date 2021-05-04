@@ -1,6 +1,6 @@
 import React from "react";
 
-const CollectionsList = ({ image, name }) => {
+const CarausalCollection = ({ image, name }) => {
   return (
     <>
       <div className="relative overflow-hidden h-80	rounded-lg">
@@ -25,4 +25,4 @@ const CollectionsList = ({ image, name }) => {
   );
 };
 
-export default CollectionsList;
+export default CarausalCollection;

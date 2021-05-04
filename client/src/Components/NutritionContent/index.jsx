@@ -1,70 +1,104 @@
 import React from "react";
 import Slider from "react-slick";
 
+// Components
+import HeroImage from "./HeroImage";
+import NutritionCollection from "./NutritionCollection";
 import RestaurantCard from "../RestaurantCard";
-import CollectionsList from "../CarausalCollection";
 
 // Configs
-import ReactSlickConfig from "../../config/reactSlickConfig";
+import ReactSlickConfig, { singleImage } from "../../config/reactSlickConfig";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const NightLifeContent = () => {
-  const fakeCollections = [
+const NutritionContent = () => {
+  const data = [
     {
-      image:
-        "https://images.unsplash.com/photo-1585238342024-78d387f4a707?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-      name: "Pizza",
+      imageSm:
+        "https://b.zmtcdn.com/web/nutrition/assets/ca2ad666f06033a3e2060d7d34a698261620108893.png",
+      imageLg:
+        "https://b.zmtcdn.com/web/nutrition/assets/47fb421f35ca12ad3111e3d99d1737571620108828.png",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1572448862527-d3c904757de6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-      name: "Burger",
+      imageSm:
+        "https://b.zmtcdn.com/web/nutrition/assets/3411bca9bef796775ae924ace20916bc1620108901.png",
+      imageLg:
+        "https://b.zmtcdn.com/web/nutrition/assets/0a8f2dad65904b89178905213efe886c1620108711.png",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1593829111182-8a237d2bb024?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-      name: "Coffee",
+      imageSm:
+        "https://b.zmtcdn.com/web/nutrition/assets/bbee8bb8e4e6cc102804cea54f6bc22b1620108868.png",
+      imageLg:
+        "https://b.zmtcdn.com/web/nutrition/assets/f8da550c375c3bec2f6ba341336324561620108741.png",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1543826173-70651703c5a4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=499&q=80",
-      name: "Chicken",
+      imageSm:
+        "https://b.zmtcdn.com/web/nutrition/assets/c96ca6e3ce4a907e1c65134709db152c1620108861.png",
+      imageLg:
+        "https://b.zmtcdn.com/web/nutrition/assets/cfbb36a56a4203c7efac5de27318ea381620108756.png",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=331&q=80",
-      name: "Paneer",
+      imageSm:
+        "https://b.zmtcdn.com/web/nutrition/assets/0bde69a7f760111a662f42fe890b97bf1620108908.png",
+      imageLg:
+        "https://b.zmtcdn.com/web/nutrition/assets/3872dc3041e9633ba40b51e7dbff263a1620108770.png",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1499889808931-317a0255c0e9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-      name: "Muffins",
+      imageSm:
+        "https://b.zmtcdn.com/web/nutrition/assets/bb5be66c9aed89521cc37717103f32d31620108878.png",
+      imageLg:
+        "https://b.zmtcdn.com/web/nutrition/assets/6070ce964372e9e39c5bf6345a7bf78c1620108789.png",
+    },
+    {
+      imageSm:
+        "https://b.zmtcdn.com/web/nutrition/assets/39dbd67fa046284b1b21906606d641db1620108887.png",
+      imageLg:
+        "https://b.zmtcdn.com/web/nutrition/assets/136f6056ec55c6431172d5405cb645761620108811.png",
     },
   ];
 
+  const NutritionCollectionData = [
+    {
+      image:
+        "https://dote.zmtcdn.com/prod/data/admin_assets/images/63a/465608c5e83c8668a8cb8ef27b50363a_1615481698.png?output-format=webp",
+      name: "Health SUpplements",
+    },
+    {
+      image:
+        "https://dote.zmtcdn.com/prod/data/admin_assets/images/1e9/4f663bdd6e9c6dc60b949361747321e9_1615993234.png?output-format=webp",
+      name: "Immunity & Digestion",
+    },
+    {
+      image:
+        "https://dote.zmtcdn.com/prod/data/admin_assets/images/33c/478ca76eb4ed8b06bfd5afd52d72433c_1617295398.png?output-format=webp",
+      name: "Healthy Teas",
+    },
+    {
+      image:
+        "https://dote.zmtcdn.com/prod/data/admin_assets/images/956/efe7cf41bd9c6751984c1894d094a956_1615993161.png?output-format=webp",
+      name: "Fitness Supplements",
+    },
+    {
+      image:
+        "https://dote.zmtcdn.com/prod/data/admin_assets/images/e32/b262661f66693aa5a5369bcf1dea9e32_1617295264.png?output-format=webp",
+      name: "Weight Management",
+    },
+  ];
   return (
     <>
-      <h1 className="text-2xl md:text-3xl font-semibold text-gray-700">
-        Collections
-      </h1>
-      <p className="text-lg">
-        Explore curated lists of top restaurants, cafes, pubs, and bars in
-        Bengaluru, based on trends
-      </p>
-
-      <div className="my-8">
-        <Slider {...ReactSlickConfig}>
-          {fakeCollections.map((data) => (
-            <CollectionsList {...data} />
-          ))}
-        </Slider>
-      </div>
-
-      <h1 className="mt-12 text-2xl md:text-3xl font-semibold text-gray-700">
-        Dine-Out Restaurants in Magadi Road
-      </h1>
+      <Slider {...singleImage}>
+        {data.map((image) => (
+          <HeroImage {...image} name={`${Date.now()}`} />
+        ))}
+      </Slider>
+      <div className="py-10"></div>
+      <Slider {...ReactSlickConfig}>
+        {NutritionCollectionData.map((list) => (
+          <NutritionCollection {...list} />
+        ))}
+      </Slider>
+      <h1 className="mt-8 mb-4 text-xl" >All Products</h1>
       <section className="mt-4 md:flex md:flex-wrap">
         <RestaurantCard
           image="https://b.zmtcdn.com/data/pictures/2/60432/aa49749956282f2ef41a0bff720f5059_o2_featured_v2.jpeg?output-format=webp"
@@ -143,4 +177,4 @@ const NightLifeContent = () => {
   );
 };
 
-export default NightLifeContent;
+export default NutritionContent;

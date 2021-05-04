@@ -6,9 +6,10 @@ import TabContent from "../Components/Tabs/TabContent";
 import DeliveryContent from "../Components/DeliveryContent";
 import DineOutContent from "../Components/DineOutContent";
 import NightLifeContent from "../Components/NightLifeContent";
+import NutritionContent from "../Components/NutritionContent";
 
 const HomePage = () => {
-  const [activeTabs, setActiveTabs] = useState("delivery");
+  const [activeTabs, setActiveTabs] = useState("nutrition");
   const tabsContent = [
     {
       id: 1,
@@ -40,6 +41,16 @@ const HomePage = () => {
       isActive: activeTabs === "nightlife",
       toggleTab: () => setActiveTabs("nightlife"),
     },
+    {
+      id: 4,
+      name: "Nutrition",
+      iconActve:
+        "https://b.zmtcdn.com/data/o2_assets/0f6dcb1aef93fa03ea3f91f37918f3bc1616649503.png?output-format=webp",
+      defaultIcon:
+        "https://b.zmtcdn.com/data/o2_assets/54cad8274d3c3ec7129e0808a13b27c31616582882.png?output-format=webp",
+      isActive: activeTabs === "nutrition",
+      toggleTab: () => setActiveTabs("nutrition"),
+    },
   ];
 
   return (
@@ -56,6 +67,9 @@ const HomePage = () => {
         </TabContent>
         <TabContent isTabActive={activeTabs === "nightlife"}>
           <NightLifeContent />
+        </TabContent>
+        <TabContent isTabActive={activeTabs === "nutrition"}>
+          <NutritionContent />
         </TabContent>
       </div>
     </>
