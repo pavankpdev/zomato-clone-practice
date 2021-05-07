@@ -17,12 +17,14 @@ export default function Example() {
                   className="w-full h-full rounded-full"
                 />
               </div>
-              <h4>Pavan</h4>
-              {open ? (
-                <i className="fas fa-chevron-up transform rotate-180" />
-              ) : (
-                <i className="fas fa-chevron-down transform rotate-180" />
-              )}
+              <span className="hidden lg:flex items-center gap-2">
+                <h4>Pavan</h4>
+                {open ? (
+                  <i className="fas fa-chevron-down transform rotate-180" />
+                ) : (
+                  <i className="fas fa-chevron-up transform rotate-180" />
+                )}
+              </span>
             </Menu.Button>
           </div>
 
