@@ -1,6 +1,6 @@
 import React from "react";
 // Components
-import Navbar from "../Components/Navbar";
+import Navbar from "../Components/Navbar/Navbar";
 
 const HomeLayout = ({ children }) => {
   return (

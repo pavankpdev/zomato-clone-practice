@@ -1,8 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import classnames from "classnames";
+
+import { AuthContext } from "../../content/auth";
+import ProfileDropDown from "./ProfileDropdown";
 
 const NavBar = () => {
   const [toggleGps, setToggleGps] = useState(false);
+
+  // Access the context object
+  const { isAuth } = useContext(AuthContext);
 
   const handleToggleGps = () => setToggleGps(!toggleGps);
 
@@ -15,14 +21,6 @@ const NavBar = () => {
 
     function success(pos) {
       var crd = pos.coords;
-
-      console.log("Your current position is:");
-      console.log(`Latitude : ${crd.latitude}`);
-      console.log(`Longitude: ${crd.longitude}`);
-      console.log(`More or less ${crd.accuracy} meters.`);
-      console.log(
-        `location : https://www.openstreetmap.org/#map=18/${crd.latitude}/${crd.longitude}`
-      );
     }
 
     function error(err) {
@@ -43,7 +41,7 @@ const NavBar = () => {
               className="w-28 mr-2 lg:mr-4"
             />
             <div
-              className="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1 lg:justify-start shadow-md bg-white "
+              className="hidden px-2 py-2 rounded-lg md:flex md:items-center md:w-auto w-full order-3 md:order-1 lg:justify-start shadow-md bg-white "
               id="menu"
             >
               <div className="px-2 relative">
@@ -91,22 +89,31 @@ const NavBar = () => {
               </div>
             </div>
           </div>
-          <div
-            className="order-2  md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4"
-            id="nav-content"
-          >
-            <div className="lg:hidden border rounded-full py-2 px-3 border-brand">
-              <i className="fas fa-user text-brand"></i>
+
+          {isAuth ? (
+            <div>
+              <ProfileDropDown />
             </div>
-            <div className="auth flex items-center w-full hidden lg:block lg:w-full">
-              <button className="bg-transparent text-gray-800 font-semibold	 p-2 rounded  mr-4 hover:bg-gray-100 hover:text-gray-700 focus:outline-none ">
-                Sign in
-              </button>
-              <button className=" border border-brand text-brand font-semibold	 py-1 px-3 rounded  hover:bg-brand hover:text-gray-200 focus:outline-none ">
-                Sign up
-              </button>
-            </div>
-          </div>
+          ) : (
+            <>
+              <div
+                className="order-2  md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4"
+                id="nav-content"
+              >
+                <div className="lg:hidden border rounded-full py-2 px-3 border-brand">
+                  <i className="fas fa-user text-brand"></i>
+                </div>
+                <div className="auth flex items-center w-full hidden lg:block lg:w-full">
+                  <button className="bg-transparent text-gray-800 font-semibold	 p-2 rounded  mr-4 hover:bg-gray-100 hover:text-gray-700 focus:outline-none ">
+                    Sign in
+                  </button>
+                  <button className=" border border-brand text-brand font-semibold	 py-1 px-3 rounded  hover:bg-brand hover:text-gray-200 focus:outline-none ">
+                    Sign up
+                  </button>
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </nav>
     </>
