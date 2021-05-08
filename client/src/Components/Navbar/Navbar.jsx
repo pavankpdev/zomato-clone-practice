@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import classnames from "classnames";
+import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../content/auth";
 import ProfileDropDown from "./ProfileDropdown";
@@ -33,7 +34,9 @@ const NavBar = () => {
   const MobileNav = () => (
     <>
       <div className="w-full flex justify-between items-center  gap-2 md:hidden">
-        <i className="fal fa-arrow-left text-gray-900" />
+        <Link to="/">
+          <i className="fal fa-arrow-left text-gray-900" />
+        </Link>
         <div className="flex justify-between items-center gap-2 truncate">
           <i className="fas fa-map-marker-alt text-brand" />
           <p className=" text-gray-700 truncate">

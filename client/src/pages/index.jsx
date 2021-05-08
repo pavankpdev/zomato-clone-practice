@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 // Components
 import TabsMobile from "../Components/TabsMobile";
@@ -56,9 +56,11 @@ const HomePage = () => {
           <div className="absolute inset-0 z-50 h-96 w-full">
             <div className="relative h-full w-full p-3">
               <div className="flex justify-end">
-                <div className="rounded-full py-2 px-3 bg-white">
-                  <i className="fas fa-user text-brand"></i>
-                </div>
+                <Link to="/login">
+                  <div className="rounded-full py-2 px-3 bg-white">
+                    <i className="fas fa-user text-brand"></i>
+                  </div>
+                </Link>
               </div>
               <div className="absolute inset-x-0 bottom-0 w-full flex flex-col justify-end items-center p-3 pb-8 gap-4">
                 <img
@@ -101,7 +103,7 @@ const HomePage = () => {
               Explore curated lists of top restaurants, cafes, pubs, and bars in
               Bengaluru, based on trends
             </p>
-            <div className="mt-4 w-full flex gap-2 flex-wrap justify-between" >
+            <div className="mt-4 w-full flex gap-2 flex-wrap justify-between">
               {fakeCollections.map((data) => (
                 <div style={{ width: "48%" }}>
                   <CarausalCollection {...data} />
