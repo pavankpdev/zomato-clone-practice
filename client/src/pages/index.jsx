@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 // Components
+import TabsMobile from "../Components/TabsMobile";
+import CarausalCollection from "../Components/CarausalCollection";
 
 const HomePage = () => {
   const history = useHistory();
@@ -9,7 +11,38 @@ const HomePage = () => {
   useEffect(() => {
     if (window.screen.width >= 768) history.push("/delivery");
   }, []);
-
+  const fakeCollections = [
+    {
+      image:
+        "https://images.unsplash.com/photo-1585238342024-78d387f4a707?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+      name: "Pizza",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1572448862527-d3c904757de6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+      name: "Burger",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1593829111182-8a237d2bb024?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+      name: "Coffee",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1543826173-70651703c5a4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=499&q=80",
+      name: "Chicken",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=331&q=80",
+      name: "Paneer",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1499889808931-317a0255c0e9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+      name: "Muffins",
+    },
+  ];
   return (
     <>
       <div className="md:hidden">
@@ -37,9 +70,9 @@ const HomePage = () => {
                   Discover the best food & drinks in your city
                 </p>
                 <div className="w-full">
-                  <div className="my-2 flex items-center gap-3 bg-white rounded-lg py-2 px-3">
+                  <div className="my-2 flex items-center gap-3 bg-white rounded-lg p-3">
                     <i className="fas fa-map-marker-alt text-brand mx-2" />
-                    <p className="w-full truncate">
+                    <p className="w-full truncate text-sm font-semibold">
                       BengaluurBengaluurBengaluurBengaluurBengaluurBengaluurBengaluurBengaluurBengaluur
                     </p>
                     <i className="fas fa-caret-down text-gray-700" />
@@ -55,6 +88,25 @@ const HomePage = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4">
+          <TabsMobile />
+
+          <div className="mb-4">
+            <h1 className="text-xl font-semibold text-gray-700">Collections</h1>{" "}
+            <p className="text-sm text-gray-500">
+              Explore curated lists of top restaurants, cafes, pubs, and bars in
+              Bengaluru, based on trends
+            </p>
+            <div className="mt-4 w-full flex gap-2 flex-wrap justify-between" >
+              {fakeCollections.map((data) => (
+                <div style={{ width: "48%" }}>
+                  <CarausalCollection {...data} />
+                </div>
+              ))}
             </div>
           </div>
         </div>

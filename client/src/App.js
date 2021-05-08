@@ -22,8 +22,8 @@ function App() {
         <Route exact path="/" component={HomePage} />
         <DefaultHoc component={Delivery} path="/delivery" exact />
         <DefaultHoc component={DineOut} path="/dine-out" exact />
-        <DefaultHoc component={Nutrition} path="/night-life" exact />
-        <DefaultHoc component={NightLife} path="/nutrition" exact />
+        <DefaultHoc component={NightLife} path="/night-life" exact />
+        <DefaultHoc component={Nutrition} path="/nutrition" exact />
         <Route exact path="/login" component={Login} />
       </Suspense>
     </AuthProvider>

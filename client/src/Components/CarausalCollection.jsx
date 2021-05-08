@@ -3,7 +3,7 @@ import React from "react";
 const CarausalCollection = ({ image, name }) => {
   return (
     <>
-      <div className="relative overflow-hidden h-80	rounded-lg">
+      <div className="relative overflow-hidden h-40 w-full  md:h-80 rounded-md 	md:rounded-lg">
         <img
           src={image}
           alt={name}
@@ -17,7 +17,7 @@ const CarausalCollection = ({ image, name }) => {
           }}
         >
           <div className="absolute bottom-0 w-full">
-            <p className="text-white m-6 text-2xl truncate ">{name}</p>
+            <p className="text-white mx-3 my-2 text-lg md:text-2xl truncate">{name}</p>
           </div>
         </div>
       </div>
