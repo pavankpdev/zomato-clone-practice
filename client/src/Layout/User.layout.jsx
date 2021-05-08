@@ -2,8 +2,12 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 
 import NavBar from "../Components/Navbar/Navbar";
-
 import { ActivityItem, ActivityList } from "../Components/Profile/ActivityList";
+import {
+  MenuDropDown,
+  MenuItem,
+  MenuList,
+} from "../Components/Profile/MenuDropDown";
 
 const UserLayout = ({ children }) => {
   const location = useLocation();
@@ -51,8 +55,20 @@ const UserLayout = ({ children }) => {
             </div>
           </div>
         </div>
-        <main class="flex w-full h-screen">
-          <aside class="w-80 h-screen bg-white w-fulll hidden sm:block">
+        <main class="flex flex-col md:flex-row w-full h-screen">
+          <MenuDropDown>
+            <MenuList name="Activity">
+              <MenuItem name="Reviews" route="reviews" />
+              <MenuItem name="Photos" route="photos" />
+              <MenuItem name="Bookmarks" route="bookmarks" />
+            </MenuList>
+            <MenuList name="Online Ordering">
+              <MenuItem name="Current Order" route="current-history" />
+              <MenuItem name="Order History" route="order-history" />
+              <MenuItem name="My addresses" route="my-address" />
+            </MenuList>
+          </MenuDropDown>
+          <aside class="hidden md:block w-80 h-screen bg-white w-fulll">
             <ActivityList name="Activity">
               <ActivityItem
                 name="Reviews"
