@@ -19,7 +19,7 @@ function App() {
   return (
     <AuthProvider>
       <Suspense fallback={<h1>Loading</h1>}>
-        <DefaultHoc component={HomePage} path="/" exact />
+        <Route exact path="/" component={HomePage} />
         <DefaultHoc component={Delivery} path="/delivery" exact />
         <DefaultHoc component={DineOut} path="/dine-out" exact />
         <DefaultHoc component={Nutrition} path="/night-life" exact />

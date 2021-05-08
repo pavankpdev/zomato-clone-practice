@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import classnames from "classnames";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 // Components
 import Navbar from "../Components/Navbar/Navbar";
@@ -89,23 +89,25 @@ const HomeLayout = ({ children }) => {
               route: "/nutrition",
             },
           ].map(({ iconActive, iconDefault, name, route }) => (
-            <div
-              className="flex flex-col items-center pt-2"
-              key={`a${Math.random()}${Date.now()}`}
-            >
-              <i
-                className={
-                  currentPath.includes(route) ? iconActive : iconDefault
-                }
-              />
-              <small
-                className={classnames("text-gray-900", {
-                  "text-brand": currentPath.includes(route),
-                })}
+            <Link to={route}>
+              <div
+                className="flex flex-col items-center pt-2"
+                key={`a${Math.random()}${Date.now()}`}
               >
-                {name}
-              </small>
-            </div>
+                <i
+                  className={
+                    currentPath.includes(route) ? iconActive : iconDefault
+                  }
+                />
+                <small
+                  className={classnames("text-gray-900", {
+                    "text-brand": currentPath.includes(route),
+                  })}
+                >
+                  {name}
+                </small>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
