@@ -40,7 +40,7 @@ export const MenuItem = ({ route, name }) => {
 
 export function MenuDropDown({ children }) {
   return (
-    <Menu as="div" className="relative inline-block text-left">
+    <Menu as="div" className="relative inline-block text-left mt-4 md:hidden">
       {({ open }) => (
         <>
           <div>

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../content/auth";
 import ProfileDropDown from "./ProfileDropdown";
 
-const NavBar = () => {
+const RestaurantNavBar = () => {
   const [toggleGps, setToggleGps] = useState(false);
 
   // Access the context object
@@ -38,10 +38,11 @@ const NavBar = () => {
           <i className="fal fa-arrow-left text-gray-900" />
         </Link>
         <div className="flex justify-between items-center gap-2 truncate">
-          <i className="fas fa-map-marker-alt text-brand" />
-          <p className=" text-gray-700 truncate">
-            Magadi Road, Bangalore 560023560023560023560023
-          </p>
+          <img
+            src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png"
+            alt=""
+            className="w-28 mr-2 lg:mr-4"
+          />
         </div>
         {isAuth ? (
           <div>
@@ -150,4 +151,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default RestaurantNavBar;

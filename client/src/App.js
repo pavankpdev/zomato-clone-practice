@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 
 // Context
 import { AuthProvider } from "./content/auth";
@@ -7,6 +7,7 @@ import { AuthProvider } from "./content/auth";
 // Hoc
 import DefaultHoc from "./HOC/Default.hoc";
 import ProfileHOC from "./HOC/Profile.HOC";
+import RestaurantHOC from "./HOC/Restaurant.HOC";
 
 // Pages
 import HomePage from "./pages/index";
@@ -21,6 +22,11 @@ import OrderHistory from "./pages/Profile/OrderHistory";
 import CurrentOrders from "./pages/Profile/currentOrders";
 import MyAddress from "./pages/Profile/myAddresses";
 import Bookamrks from "./pages/Profile/bookmarks";
+import OverviewRestaurant from "./pages/Restaurant/overview";
+import OrderOnlineRestaurant from "./pages/Restaurant/orderOnline";
+import ReviewRestaurant from "./pages/Restaurant/reviews";
+import MenuRestaurant from "./pages/Restaurant/menu";
+import PhotosRestaurant from "./pages/Restaurant/photos";
 
 function App() {
   return (
@@ -45,6 +51,34 @@ function App() {
         />
         <ProfileHOC component={MyAddress} path="/user/:id/my-address" exact />
         <ProfileHOC component={Bookamrks} path="/user/:id/bookmarks" exact />
+        <Route path="/restaurant/:id/" exact>
+          <Redirect to="/restaurant/:id/overview" />
+        </Route>
+        <RestaurantHOC
+          component={OverviewRestaurant}
+          path="/restaurant/:id/overview"
+          exact
+        />
+        <RestaurantHOC
+          component={OrderOnlineRestaurant}
+          path="/restaurant/:id/order-online"
+          exact
+        />
+        <RestaurantHOC
+          component={ReviewRestaurant}
+          path="/restaurant/:id/reviews"
+          exact
+        />
+        <RestaurantHOC
+          component={MenuRestaurant}
+          path="/restaurant/:id/menu"
+          exact
+        />
+        <RestaurantHOC
+          component={PhotosRestaurant}
+          path="/restaurant/:id/photos"
+          exact
+        />
         <Route exact path="/login" component={Login} />
       </Suspense>
     </AuthProvider>
