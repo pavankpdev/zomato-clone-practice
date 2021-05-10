@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ImageGrid = ({ images }) => {
   return (
@@ -10,7 +11,9 @@ const ImageGrid = ({ images }) => {
           className="w-full h-full object-cover rounded-lg"
         />
         <div className="absolute bottom-2 right-2 bg-black px-3 py-2 text-white rounded-lg bg-opacity-60">
-          <i className="fas fa-camera text-white mr-2" /> View Gallery
+          <Link to="/restaurant/dada/photos">
+            <i className="fas fa-camera text-white mr-2" /> View Gallery
+          </Link>
         </div>
       </div>
       <div className="hidden md:flex items-center gap-1 my-2 md:h-80 lg:h-96">

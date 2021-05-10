@@ -99,19 +99,19 @@ const Restaurant = ({ children }) => {
         </div>
         <div className="flex flex-col mt-4 md:mt-8">
           <div className="flex items-center flex-wrap gap-2">
-            <button className="bg-white border-2 border-gray-400 text-gray-800 font-normal py-2 px-4 rounded inline-flex items-center">
+            <button className="bg-white border border-gray-600 text-gray-800 font-normal py-2 px-4 rounded inline-flex items-center">
               <i className="far fa-star mr-2 text-brand " />
               <span>Add Reviews</span>
             </button>
-            <button className="bg-white border-2 border-gray-400 text-gray-800 font-normal py-2 px-4 rounded inline-flex items-center">
+            <button className="bg-white border border-gray-600 text-gray-800 font-normal py-2 px-4 rounded inline-flex items-center">
               <i className="fas fa-directions mr-2 text-brand " />
               <span>Direction</span>
             </button>
-            <button className="bg-white border-2 border-gray-400 text-gray-800 font-normal py-2 px-4 rounded inline-flex items-center">
+            <button className="bg-white border border-gray-600 text-gray-800 font-normal py-2 px-4 rounded inline-flex items-center">
               <i className="far fa-bookmark mr-2 text-brand " />
               <span>Bookmark</span>
             </button>
-            <button className="bg-white border-2 border-gray-400 text-gray-800 font-normal py-2 px-4 rounded inline-flex items-center">
+            <button className="bg-white border border-gray-600 text-gray-800 font-normal py-2 px-4 rounded inline-flex items-center">
               <i className="far fa-share-square mr-2 text-brand " />
               <span>Share</span>
             </button>

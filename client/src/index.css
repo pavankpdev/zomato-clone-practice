@@ -16,3 +16,7 @@ body {
 .slick-next:before {
   color: #e23744 !important;
 }
+
+.leaflet-container {
+  width: 100%;
+}
