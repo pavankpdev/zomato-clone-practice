@@ -22,6 +22,8 @@ const MenuRestaurant = () => {
   ];
   return (
     <>
+      {" "}
+      <h1 className="text-2xl font-semibold my-6">Overview</h1>
       <div className="flex flex-wrap items-center gap-2">
         {menuCard.map((menu) => (
           <MenuCard {...menu} />
