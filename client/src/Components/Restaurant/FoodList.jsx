@@ -21,6 +21,7 @@ export const FoodList = ({ name, id, children }) => {
       <div
         className="text-xl font-semibold my-6 z-50 md:sticky md:top-0 md:bg-white md:py-2  lg:text-3xl"
         id={id}
+        
       >
         {name}
       </div>

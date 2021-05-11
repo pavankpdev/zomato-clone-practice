@@ -2,19 +2,30 @@ import React, { useState } from "react";
 import { Switch } from "@headlessui/react";
 
 import { FoodItem, FoodList } from "../../Components/Restaurant/FoodList";
+import Menu from "../../Components/Restaurant/menu";
 
 const OrderOnlineRestaurant = () => {
   const [enabled, setEnabled] = useState(false);
+  const [activeMenu, setActiveMenu] = useState("");
 
   return (
     <>
-      <main className="flex flex-col md:flex-row w-full h-screen">
-        <aside class="hidden md:block w-80 lg:w-96 h-screen bg-white w-fulll">
-          <a href="#masala-dosa" className="block px-4 py-2 text-md">
-            Recommended
-          </a>
+      <main className="flex flex-col md:flex-row w-full h-screen gap-4 relative">
+        <aside class="hidden md:block w-80 lg:w-96 h-screen bg-white pt-8 border-r border-gray-300">
+          <Menu
+            name="Recommended"
+            id="recommended"
+            activeMenu={activeMenu}
+            setActiveMenu={setActiveMenu}
+          />
+          <Menu
+            name="Masala Dosa"
+            id="masala-dosa"
+            activeMenu={activeMenu}
+            setActiveMenu={setActiveMenu}
+          />
         </aside>
-        <section className="w-full">
+        <section className="w-full h-screen overflow-y-scroll	">
           <h1 className="text-2xl font-semibold my-6">Order Online</h1>
           <span className="border-r border-gray-600 pr-3">
             <i className="fas fa-street-view mr-2 text-gray-600 " />
