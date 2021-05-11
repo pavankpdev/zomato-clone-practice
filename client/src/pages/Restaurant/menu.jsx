@@ -1,7 +1,11 @@
 import React from "react";
+import MenuCard from "../../Components/Restaurant/menuCard";
 
 const MenuRestaurant = () => {
-  return <>Menu Bruh</>;
+  return <>
+  
+
+  </>;
 };
 
 export default MenuRestaurant;
