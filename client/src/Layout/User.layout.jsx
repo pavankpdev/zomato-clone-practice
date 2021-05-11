@@ -55,7 +55,7 @@ const UserLayout = ({ children }) => {
             </div>
           </div>
         </div>
-        <main class="flex flex-col md:flex-row w-full h-screen">
+        <main className="flex flex-col md:flex-row w-full h-screen">
           <MenuDropDown>
             <MenuList name="Activity">
               <MenuItem name="Reviews" route="reviews" />
@@ -68,7 +68,7 @@ const UserLayout = ({ children }) => {
               <MenuItem name="My addresses" route="my-address" />
             </MenuList>
           </MenuDropDown>
-          <aside class="hidden md:block w-80 h-screen bg-white w-fulll">
+          <aside className="hidden md:block w-80 h-screen bg-white w-fulll">
             <ActivityList name="Activity">
               <ActivityItem
                 name="Reviews"
@@ -105,8 +105,8 @@ const UserLayout = ({ children }) => {
             </ActivityList>
           </aside>
 
-          <section class="w-full p-4">
-            <div class="w-full h-64 border-dashed border-4 p-4 text-md">
+          <section className="w-full p-4">
+            <div className="w-full h-64 border-dashed border-4 p-4 text-md">
               {children}
             </div>
           </section>
