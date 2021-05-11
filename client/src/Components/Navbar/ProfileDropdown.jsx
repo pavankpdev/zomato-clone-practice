@@ -2,6 +2,7 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import classnames from "classnames";
+import { Link } from "react-router-dom";
 
 export default function Example() {
   return (
@@ -45,15 +46,15 @@ export default function Example() {
               <div className="py-1">
                 <Menu.Item>
                   {({ active }) => (
-                    <a
-                      href="#"
+                    <Link
+                      to="/user/ad"
                       className={classnames("block px-4 py-2 text-md", {
                         "bg-gray-100 text-gray-900": active,
                         "text-gray-700": !active,
                       })}
                     >
                       Profile
-                    </a>
+                    </Link>
                   )}
                 </Menu.Item>
               </div>

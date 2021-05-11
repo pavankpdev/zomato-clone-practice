@@ -27,6 +27,8 @@ import OrderOnlineRestaurant from "./pages/Restaurant/orderOnline";
 import ReviewRestaurant from "./pages/Restaurant/reviews";
 import MenuRestaurant from "./pages/Restaurant/menu";
 import PhotosRestaurant from "./pages/Restaurant/photos";
+import IndexUser from "./pages/Profile/index";
+import IndexRestaurant from "./pages/Restaurant/index";
 
 function App() {
   return (
@@ -37,6 +39,7 @@ function App() {
         <DefaultHoc component={DineOut} path="/dine-out" exact />
         <DefaultHoc component={NightLife} path="/night-life" exact />
         <DefaultHoc component={Nutrition} path="/nutrition" exact />
+        <ProfileHOC component={IndexUser} path="/user/:id/" exact />
         <ProfileHOC component={Reviews} path="/user/:id/reviews" exact />
         <ProfileHOC component={Photos} path="/user/:id/photos" exact />
         <ProfileHOC
@@ -51,9 +54,11 @@ function App() {
         />
         <ProfileHOC component={MyAddress} path="/user/:id/my-address" exact />
         <ProfileHOC component={Bookamrks} path="/user/:id/bookmarks" exact />
-        <Route path="/restaurant/:id/" exact>
-          <Redirect to="/restaurant/:id/overview" />
-        </Route>
+        <RestaurantHOC
+          component={IndexRestaurant}
+          path="/restaurant/:id/"
+          exact
+        />
         <RestaurantHOC
           component={OverviewRestaurant}
           path="/restaurant/:id/overview"

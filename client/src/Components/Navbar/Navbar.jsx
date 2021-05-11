@@ -68,7 +68,7 @@ const NavBar = () => {
             className="w-28 mr-2 lg:mr-4"
           />
           <div
-            className="hidden px-2 py-2 rounded-lg md:flex md:items-center md:w-auto w-full order-3 md:order-1 lg:justify-start shadow-sm bg-white border-2 border-gray-200"
+            className="hidden px-2 py-2 rounded-lg md:flex md:items-center md:w-auto w-full order-3 md:order-1 lg:justify-start shadow-sm bg-white border border-gray-200"
             id="menu"
           >
             <div className="px-2 relative">
