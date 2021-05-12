@@ -1,4 +1,8 @@
 import React from "react";
+import {
+  LazyLoadImage,
+  trackWindowScroll,
+} from "react-lazy-load-image-component";
 
 const HeroImage = ({ imageLg, imageSm, name }) => {
   return (
@@ -9,15 +13,18 @@ const HeroImage = ({ imageLg, imageSm, name }) => {
           borderRadius: "2rem",
         }}
       >
-        <img
+        <LazyLoadImage
           src={window.screen.width >= 768 ? imageLg : imageSm}
           alt={name}
           className=" w-full h-full object-contain transition duration-700 ease-in-out filter unset object-center"
-          loading="lazy"
+          placeholder={
+            <div className="animate-pulse w-full h-full bg-gray-200 "></div>
+          }
+          wrapperClassName="w-full h-full"
         />
       </div>
     </>
   );
 };
 
-export default HeroImage;
+export default trackWindowScroll(HeroImage);

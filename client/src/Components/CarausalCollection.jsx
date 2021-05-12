@@ -8,7 +8,7 @@ const CarausalCollection = ({ image, name }) => {
   return (
     <>
       <div className="relative overflow-hidden h-40 w-full  md:h-80 rounded-md 	md:rounded-lg">
-        <LazyLoadImage
+        <LazyLoadImage 
           src={image}
           alt={name}
           className="w-full h-full object-cover transition duration-700 ease-in-out filter unset object-center"
