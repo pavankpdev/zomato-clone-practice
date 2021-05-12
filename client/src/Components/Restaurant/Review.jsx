@@ -1,5 +1,9 @@
 import React from "react";
 import Rating from "./FoodList";
+import {
+  LazyLoadImage,
+  trackWindowScroll,
+} from "react-lazy-load-image-component";
 
 const Review = ({
   name,
@@ -40,9 +44,18 @@ const Review = ({
           <p>{review}</p>
         </div>
         <div className="w-full flex flex-wrap items-center gap-2">
-          {images && images.map((image) => (
-            <img src={image} alt="review image" className="w-1/4 h-1/4" />
-          ))}
+          {images &&
+            images.map((image) => (
+              <LazyLoadImage
+                src={image}
+                alt="review image"
+                placeholder={
+                  <div className="animate-pulse w-full h-full bg-gray-200 "></div>
+                }
+                className="w-full h-full"
+                wrapperClassName="w-1/4 h-1/4"
+              />
+            ))}
         </div>
 
         <div className="mb-4">
@@ -69,4 +82,4 @@ const Review = ({
   );
 };
 
-export default Review;
+export default trackWindowScroll(Review);
