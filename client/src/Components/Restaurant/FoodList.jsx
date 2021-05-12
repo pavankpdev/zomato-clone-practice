@@ -1,5 +1,6 @@
 import React from "react";
 import classnames from "classnames";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Rating = ({ value }) => {
   return [1, 2, 3, 4, 5].map((ratingValue) => (
@@ -21,7 +22,6 @@ export const FoodList = ({ name, id, children }) => {
       <div
         className="text-xl font-semibold my-6 z-50 md:sticky md:top-0 md:bg-white md:py-2  lg:text-3xl"
         id={id}
-        
       >
         {name}
       </div>
@@ -46,10 +46,14 @@ export const FoodItem = ({
     <>
       <div className="w-full h-20 md:h-40 flex items-start gap-2 md:gap-4">
         <div className="w-1/4 lg:w-1/5 h-full relative ">
-          <img
+          <LazyLoadImage
             src={image}
             alt="Check pepperoni"
             className="h-full w-full rounded lg:rounded-lg"
+            placeholder={
+              <div className="animate-pulse w-full h-full bg-gray-200 "></div>
+            }
+            wrapperClassName="w-full h-full"
           />
           {isVeg ? (
             <img
