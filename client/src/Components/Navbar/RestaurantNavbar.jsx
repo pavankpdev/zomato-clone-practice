@@ -38,11 +38,13 @@ const RestaurantNavBar = () => {
           <i className="fal fa-arrow-left text-gray-900" />
         </Link>
         <div className="flex justify-between items-center gap-2 truncate">
-          <img
-            src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png"
-            alt=""
-            className="w-28 mr-2 lg:mr-4"
-          />
+          <Link to="/">
+            <img
+              src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png"
+              alt=""
+              className="w-28 mr-2 lg:mr-4 "
+            />
+          </Link>
         </div>
         {isAuth ? (
           <div>
@@ -62,12 +64,12 @@ const RestaurantNavBar = () => {
   const MediumDeviceNav = () => (
     <>
       <div className="hidden md:flex w-full items-center justify-between px-6 py-2">
-        <div className="flex items-center">
+        <div className="flex items-center"> <Link to="/">
           <img
             src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png"
             alt=""
-            className="w-28 mr-2 lg:mr-4"
-          />
+            className="w-28 mr-2 lg:mr-4 cursor-pointer"
+          />  </Link>
           <div
             className="hidden px-2 py-2 rounded-lg md:flex md:items-center md:w-auto w-full order-3 md:order-1 lg:justify-start shadow-sm bg-white border-2 border-gray-200"
             id="menu"

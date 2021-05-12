@@ -1,4 +1,8 @@
 import React from "react";
+import {
+  LazyLoadImage,
+  trackWindowScroll,
+} from "react-lazy-load-image-component";
 
 import Rating from "./Ratings";
 
@@ -13,12 +17,16 @@ const RestaurantCard = ({
   return (
     <>
       <div className="w-full md:w-1/3 md:px-2 mb-10">
-        <div className="w-full h-64	">
-          <img
+        <div className="w-full rounded-lg  h-64	overflow-hidden">
+          <LazyLoadImage
+            effect="blur"
             src={image}
             alt={title}
-            className="rounded-lg object-cover w-full h-full"
-            loading="lazy"
+            className="rounded-lg w-full h-full object-cover transform transition duration-500  hover:scale-110"
+            placeholder={
+              <div className="animate-pulse w-full h-full bg-gray-200 "></div>
+            }
+            wrapperClassName="w-full h-full"
           />
         </div>
         <div className="mt-2">
@@ -47,4 +55,4 @@ const RestaurantCard = ({
   );
 };
 
-export default RestaurantCard;
+export default trackWindowScroll(RestaurantCard);

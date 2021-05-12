@@ -62,11 +62,13 @@ const NavBar = () => {
     <>
       <div className="hidden md:flex w-full items-center justify-between px-6 py-2">
         <div className="flex items-center">
-          <img
-            src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png"
-            alt=""
-            className="w-28 mr-2 lg:mr-4"
-          />
+          <Link to="/">
+            <img
+              src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png"
+              alt=""
+              className="w-28 mr-2 cursor-pointer lg:mr-4"
+            />
+          </Link>
           <div
             className="hidden px-2 py-2 rounded-lg md:flex md:items-center md:w-auto w-full order-3 md:order-1 lg:justify-start shadow-sm bg-white border border-gray-200"
             id="menu"
